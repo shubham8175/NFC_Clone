@@ -1,21 +1,60 @@
-import { StyleSheet, Text, View, SafeAreaView, FlatList } from 'react-native'
-import React from 'react'
+import {StyleSheet, Text, View, SafeAreaView, FlatList} from 'react-native';
+import React from 'react';
+import {NFTData, COLORS} from '../../constants';
+import FocusedStatusBar from '../Components/FocusedStatusBar';
+import HomeHeader from '../Components/HomeHeader';
+import NFTCards from '../Components/NFTCards';
 
 const Home = () => {
   return (
-    <View>
-      <Text style={styles.text}>Home</Text>
-    </View>
-  )
-}
+    <SafeAreaView style={styles.container}>
+      {/* <FocusedStatusBar background={COLORS.primary} /> */}
 
-export default Home
+      <View style={styles.secondContainer}>
+        {/* for NFT lists */}
+
+        <View style={styles.NFTcontainer}>
+          <FlatList
+            data={NFTData}
+            renderItem={({item}) => <NFTCards data={item}/>}
+            keyExtractor={(item) => item.id}
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={<HomeHeader />}
+          />
+        </View>
+
+        <View style={styles.thirdContainer}>
+          
+          <View style={{height:300, backgroundColor:COLORS.primary}}/>
+          <View style={{flex:1, backgroundColor:COLORS.white}}/>
+
+        </View>
+
+      
+
+      </View>
+    </SafeAreaView>
+  );
+};
+
+export default Home;
 
 const styles = StyleSheet.create({
-
-
-  text:{
-    fontSize:111,
-    fontFamily:'Inter-Bold'
+  container: {
+    flex: 1,
+  },
+  secondContainer: {
+    flex: 1,
+  },
+  NFTcontainer: {
+    zIndex: 0,
+  },
+  thirdContainer:{
+    position:'absolute',
+    top:0,
+    bottom:0,
+    left:0, left:0,
+    right:0, 
+    zIndex:-1
   }
-})
+});
