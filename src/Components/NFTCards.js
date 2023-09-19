@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 import {COLORS, SIZES, SHADOWS, assets} from '../../constants';
@@ -14,6 +14,7 @@ import {
 
 const NFTCards = ({data}) => {
   const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.secondContainer}>
@@ -47,7 +48,8 @@ const NFTCards = ({data}) => {
           <EthPrice price={data.price} />
           <RectButton
             minWidth={120}
-            handlePress={() => navigation.navigate('Details', {data})}
+            fontSize={SIZES.font}
+            onPressFunction={() => navigation.navigate('Details', {data})}
           />
         </View>
       </View>
