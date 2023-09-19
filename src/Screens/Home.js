@@ -5,7 +5,7 @@ import NFTCards from '../Components/NFTCards';
 import React, {useState} from 'react';
 
 const Home = () => {
-  const [nftData, setNftData] = useState(NFTData);
+  const [nftData, setNftData] = useState(NFTData); // confusion 
   const handleSearch = value => {
     if (!value.length) return setNftData(NFTData);
 

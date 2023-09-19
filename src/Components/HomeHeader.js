@@ -73,7 +73,7 @@ const HomeHeader = ({onSearch}) => {
           <TextInput
             placeholder="Search"
             style={{flex: 1}}
-            onChangeText={onSearch}
+            onChangeText={onSearch} // confusion
           />
         </View>
       </View>

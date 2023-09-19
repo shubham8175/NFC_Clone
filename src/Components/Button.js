@@ -1,4 +1,4 @@
-import {StyleSheet, TouchableOpacity, Image, Text, View} from 'react-native';
+import { TouchableOpacity, Image, Text} from 'react-native';
 import React from 'react';
 import {COLORS, SIZES, FONTS, SHADOWS} from '../../constants';
 
@@ -13,7 +13,7 @@ export const CircleButton = ({imgUrl, onPressFunction, ...props}) => {
         borderRadius: SIZES.extraLarge,
         alignItems: 'center',
         justifyContent: 'center',
-        ...SHADOWS.light,
+        ...SHADOWS.light,  // ....SHADOWS
         ...props,
       }}>
       <Image

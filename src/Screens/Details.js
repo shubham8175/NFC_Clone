@@ -6,15 +6,13 @@ import {
   Text,
   View,
   StyleSheet,
-  InteractionManager,
 } from 'react-native';
 import {RectButton, CircleButton} from '../Components/Button';
 import {SIZES, FONTS, COLORS, SHADOWS, assets} from '../../constants';
-import {NFTData} from '../../constants';
 import {SubInfo} from '../Components/SubInfo';
 import DetailsBid from '../Components/DetailsBid';
 import DetailsDescription from '../Components/DetailsDescription';
-import {useNavigation} from '@react-navigation/native';
+
 
 const DetailHeader = ({data, navigation}) => (
   <View style={{width: '100%', height: 273}}>
@@ -56,15 +54,15 @@ const Details = ({route, navigation}) => {
         renderItem={({item}) => <DetailsBid bid={item} />}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: SIZES.extraLarge * 3}}
+        contentContainerStyle={{paddingBottom: SIZES.extraLarge * 3}} // confusion 
         ListHeaderComponent={() => (
-          <React.Fragment>
-            <DetailHeader data={data} navigation={navigation} />
+          <React.Fragment> 
+            <DetailHeader data={data} navigation={navigation} />  
             <SubInfo />
             <View style={{padding: SIZES.font}}>
               <DetailsDescription data={data} />
 
-              {data.bids.length > 0 && (
+              {data.bids.length > 0 && (  // confusion 
                 <Text
                   style={{
                     fontSize: SIZES.font,
@@ -75,7 +73,7 @@ const Details = ({route, navigation}) => {
                 </Text>
               )}
             </View>
-          </React.Fragment>
+          </React.Fragment>  // confusion
         )}
       />
     </SafeAreaView>

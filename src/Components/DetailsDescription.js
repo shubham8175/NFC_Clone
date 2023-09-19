@@ -51,7 +51,7 @@ const DetailsDescription = ({data}) => {
               fontFamily: FONTS.semiBold,
               color: COLORS.primary,
             }}
-            onPress={() => {
+            onPress={() => {   // confusion
               if (!readMore) {
                 setText(data.description);
                 setReadMore(true);

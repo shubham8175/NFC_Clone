@@ -27,7 +27,7 @@ const DetailsBid = ({bid}) => {
             fontSize: SIZES.small,
             color: COLORS.primary,
           }}>
-          Bid place by {bid.name}{' '}
+          Bid place by {bid.name}
         </Text>
         <Text
           style={{
