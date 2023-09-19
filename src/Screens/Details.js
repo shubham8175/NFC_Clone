@@ -14,15 +14,14 @@ import {NFTData} from '../../constants';
 import {SubInfo} from '../Components/SubInfo';
 import DetailsBid from '../Components/DetailsBid';
 import DetailsDescription from '../Components/DetailsDescription';
-import { useNavigation } from '@react-navigation/native';
-
-
+import {useNavigation} from '@react-navigation/native';
 
 const DetailHeader = ({data, navigation}) => (
   <View style={{width: '100%', height: 273}}>
-    <Image source={data.image} 
-    resizeMode='cover'
-    style={{width:'100%', height:'100%'}}
+    <Image
+      source={data.image}
+      resizeMode="cover"
+      style={{width: '100%', height: '100%'}}
     />
     <CircleButton
       imgUrl={assets.left}
@@ -30,11 +29,7 @@ const DetailHeader = ({data, navigation}) => (
       left={15}
       top={15}
     />
-    <CircleButton
-      imgUrl={assets.heart}
-      right={15}
-      top={15}
-    />
+    <CircleButton imgUrl={assets.heart} right={15} top={15} />
   </View>
 );
 
@@ -65,12 +60,20 @@ const Details = ({route, navigation}) => {
         ListHeaderComponent={() => (
           <React.Fragment>
             <DetailHeader data={data} navigation={navigation} />
-            <SubInfo/>
-            <View style={{padding:SIZES.font}}>
+            <SubInfo />
+            <View style={{padding: SIZES.font}}>
+              <DetailsDescription data={data} />
 
-            <DetailsDescription data={data}/>
-
-
+              {data.bids.length > 0 && (
+                <Text
+                  style={{
+                    fontSize: SIZES.font,
+                    fontFamily: FONTS.semiBold,
+                    color: COLORS.primary,
+                  }}>
+                  Current bid
+                </Text>
+              )}
             </View>
           </React.Fragment>
         )}
